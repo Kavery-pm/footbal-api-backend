@@ -2,6 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const endpoint = 'https://api.football-data.org/v2/';
+const PORT = process.env.PORT || 8080;
+
 axios.defaults.headers.common['X-Auth-Token'] = 'f1c71270d94d43dea19226a70a8c8818';
 app.use((req, res, next) => {
   // Attach CORS headers
@@ -84,6 +86,6 @@ app.get('/team/:name', async (req, res) => {
     teams,
   });
 });
-app.listen(8080, () => {
-  console.log('Server started on port 3000');
+app.listen(PORT, () => {
+  console.log('Server started on port');
 });
